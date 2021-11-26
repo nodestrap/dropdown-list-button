@@ -30,19 +30,12 @@ export function DropdownListButton(props) {
     stateClasses, // delete
     ...restProps } = props;
     // jsx:
-    return (<DropdownButton 
-    // other props:
-    {...props} 
-    // semantics:
-    dropdownSemanticTag={props.dropdownSemanticTag ?? [null]} dropdownSemanticRole={props.dropdownSemanticRole ?? calculateSemanticRole(props)}>
-            <DropdownListElement 
-    // other props:
-    {...restProps} 
-    // semantics:
-    tag={listTag} role={listRole} semanticTag={listSemanticTag} semanticRole={listSemanticRole}>
-                {children}
-            </DropdownListElement>
-        </DropdownButton>);
+    return (React.createElement(DropdownButton, { ...props, 
+        // semantics:
+        dropdownSemanticTag: props.dropdownSemanticTag ?? [null], dropdownSemanticRole: props.dropdownSemanticRole ?? calculateSemanticRole(props) },
+        React.createElement(DropdownListElement, { ...restProps, 
+            // semantics:
+            tag: listTag, role: listRole, semanticTag: listSemanticTag, semanticRole: listSemanticRole }, children)));
 }
 DropdownListButton.prototype = DropdownButton.prototype; // mark as DropdownButton compatible
 export { DropdownListButton as default };
