@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import type { Tag, Role, SemanticTag, SemanticRole } from '@nodestrap/element';
-import { PopupPlacement, PopupModifier, PopupPosition, OrientationName, OrientationVariant, ListStyle, ListVariant, DropdownListCloseType, DropdownListItemProps, DropdownListItem, DropdownListSeparatorItem, DropdownListElementProps } from '@nodestrap/dropdown-list';
+import { PopupPlacement, PopupMiddleware, PopupStrategy, OrientationName, OrientationVariant, ListStyle, ListVariant, DropdownListCloseType, DropdownListItemProps, DropdownListItem, DropdownListSeparatorItem, DropdownListElementProps } from '@nodestrap/dropdown-list';
 import { DropdownButtonProps } from '@nodestrap/dropdown-button';
 export type { DropdownListItemProps, DropdownListItemProps as ItemProps };
 export { DropdownListItem, DropdownListItem as Item };
@@ -18,5 +18,5 @@ export declare namespace DropdownListButton {
 }
 export { DropdownListButton as default };
 export type { OrientationName, OrientationVariant };
-export type { PopupPlacement, PopupModifier, PopupPosition };
+export type { PopupPlacement, PopupMiddleware, PopupStrategy };
 export type { ListStyle, ListVariant };
