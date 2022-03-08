@@ -2,7 +2,7 @@
 import { default as React, } from 'react'; // base technology of our nodestrap components
 import { 
 // utilities:
-calculateSemanticRole, DropdownListItem, DropdownListSeparatorItem, DropdownListElement, } from '@nodestrap/dropdown-list';
+calculateSemanticRole, DropdownListItem, DropdownListSeparatorItem, DropdownListComponent, } from '@nodestrap/dropdown-list';
 import { DropdownButton, } from '@nodestrap/dropdown-button';
 export { DropdownListItem, DropdownListItem as Item };
 export { DropdownListSeparatorItem, DropdownListSeparatorItem as SeparatorItem };
@@ -33,7 +33,7 @@ export function DropdownListButton(props) {
     return (React.createElement(DropdownButton, { ...props, 
         // semantics:
         dropdownSemanticTag: props.dropdownSemanticTag ?? [null], dropdownSemanticRole: props.dropdownSemanticRole ?? calculateSemanticRole(props) },
-        React.createElement(DropdownListElement, { ...restProps, 
+        React.createElement(DropdownListComponent, { ...restProps, 
             // semantics:
             tag: listTag, role: listRole, semanticTag: listSemanticTag, semanticRole: listSemanticRole }, children)));
 }
