@@ -4,13 +4,6 @@ import {
 }                           from 'react'         // base technology of our nodestrap components
 
 // nodestrap components:
-import type {
-    // general types:
-    Tag,
-    Role,
-    SemanticTag,
-    SemanticRole,
-}                           from '@nodestrap/element'
 import {
     // general types:
     PopupPlacement,
@@ -67,80 +60,107 @@ export type { DropdownListCloseType }
 
 
 
-export interface DropdownListButtonProps<TCloseType = DropdownListCloseType>
+export interface DropdownListButtonProps<TElement extends HTMLElement = HTMLElement, TCloseType = DropdownListCloseType>
     extends
-        DropdownButtonProps<TCloseType>,
+        DropdownButtonProps<TElement, TCloseType>,
         
-        DropdownListComponentProps<HTMLButtonElement, TCloseType>
+        Omit<DropdownListComponentProps<TElement, TCloseType>, 'onClick'>
 {
-    // semantics:
-    listTag?          : Tag
-    listRole?         : Role
-    listSemanticTag?  : SemanticTag
-    listSemanticRole? : SemanticRole
 }
-export function DropdownListButton<TCloseType = DropdownListCloseType>(props: DropdownListButtonProps<TCloseType>) {
+export function DropdownListButton<TElement extends HTMLElement = HTMLElement, TCloseType = DropdownListCloseType>(props: DropdownListButtonProps<TElement, TCloseType>) {
     // rest props:
     const {
-        // accessibilities:
-        active,         // from accessibilities, removed
-        inheritActive,  // from accessibilities, removed
+        // essentials:
+        listRef,
+        
+        
+        // components:
+        list,
         
         
         // children:
-        children,       // delete
+        children,
+    ...restDropdownProps} = props;
+    const {
+        // layouts:
+        size,
+        orientation,
+        // nude,
         
         
-        // essentials:
-        style,          // delete
+        // colors:
+        theme      = 'secondary', // set default to secondary
+        gradient,
+        outlined,
+        mild,
         
         
-        // semantics:
-        listTag,
-        listRole,
-        listSemanticTag,
-        listSemanticRole,
-        
-        tag,            // delete, replace with: listTag
-        role,           // delete, replace with: listRole
-        semanticTag,    // delete, replace with: listSemanticTag
-        semanticRole,   // delete, replace with: listSemanticRole
+        // variants:
+        listStyle  = 'joined', // set default to joined
         
         
-        // identifiers:
-        id,             // delete
+        // behaviors:
+        actionCtrl,
         
         
-        // classes:
-        mainClass,      // delete
-        classes,        // delete
-        variantClasses, // delete
-        stateClasses,   // delete
-    ...restProps} = props;
+        // <Indicator> states:
+        enabled,
+        inheritEnabled,
+        readOnly,
+        inheritReadOnly,
+        // active,
+        // inheritActive,
+    } = restDropdownProps;
     
     
     
     // jsx:
     return (
-        <DropdownButton<TCloseType>
+        <DropdownButton<TElement, TCloseType>
             // other props:
-            {...props}
+            {...restDropdownProps}
             
             
             // semantics:
-            dropdownSemanticTag={props.dropdownSemanticTag   ?? [null]                      }
-            dropdownSemanticRole={props.dropdownSemanticRole ?? calculateSemanticRole(props)}
+            semanticTag ={props.semanticTag  ?? [null]                      }
+            semanticRole={props.semanticRole ?? calculateSemanticRole(props)}
         >
-            <DropdownListComponent<HTMLElement, TCloseType>
-                // other props:
-                {...restProps}
+            <DropdownListComponent<TElement, TCloseType>
+                // essentials:
+                listRef={listRef}
                 
                 
-                // semantics:
-                tag ={listTag }
-                role={listRole}
-                semanticTag ={listSemanticTag }
-                semanticRole={listSemanticRole}
+                // components:
+                list={list}
+                
+                
+                // variants:
+                // layouts:
+                size={size}
+                orientation={orientation}
+                nude={false}
+                // colors:
+                theme={theme}
+                gradient={gradient}
+                outlined={outlined}
+                mild={mild}
+                
+                
+                // variants:
+                listStyle={listStyle}
+                
+                
+                // behaviors:
+                actionCtrl={actionCtrl}
+                
+                
+                // <Indicator> states:
+                enabled={enabled}
+                inheritEnabled={inheritEnabled}
+                readOnly={readOnly}
+                inheritReadOnly={inheritReadOnly}
+                active={false}
+                inheritActive={false}
             >
                 { children }
             </DropdownListComponent>

@@ -1,5 +1,6 @@
 // react:
 import { default as React, } from 'react'; // base technology of our nodestrap components
+// nodestrap components:
 import { 
 // utilities:
 calculateSemanticRole, DropdownListItem, DropdownListSeparatorItem, DropdownListComponent, } from '@nodestrap/dropdown-list';
@@ -9,33 +10,48 @@ export { DropdownListSeparatorItem, DropdownListSeparatorItem as SeparatorItem }
 export function DropdownListButton(props) {
     // rest props:
     const { 
-    // accessibilities:
-    active, // from accessibilities, removed
-    inheritActive, // from accessibilities, removed
-    // children:
-    children, // delete
     // essentials:
-    style, // delete
-    // semantics:
-    listTag, listRole, listSemanticTag, listSemanticRole, tag, // delete, replace with: listTag
-    role, // delete, replace with: listRole
-    semanticTag, // delete, replace with: listSemanticTag
-    semanticRole, // delete, replace with: listSemanticRole
-    // identifiers:
-    id, // delete
-    // classes:
-    mainClass, // delete
-    classes, // delete
-    variantClasses, // delete
-    stateClasses, // delete
-    ...restProps } = props;
+    listRef, 
+    // components:
+    list, 
+    // children:
+    children, ...restDropdownProps } = props;
+    const { 
+    // layouts:
+    size, orientation, 
+    // nude,
+    // colors:
+    theme = 'secondary', // set default to secondary
+    gradient, outlined, mild, 
+    // variants:
+    listStyle = 'joined', // set default to joined
+    // behaviors:
+    actionCtrl, 
+    // <Indicator> states:
+    enabled, inheritEnabled, readOnly, inheritReadOnly,
+    // active,
+    // inheritActive,
+     } = restDropdownProps;
     // jsx:
-    return (React.createElement(DropdownButton, { ...props, 
+    return (React.createElement(DropdownButton, { ...restDropdownProps, 
         // semantics:
-        dropdownSemanticTag: props.dropdownSemanticTag ?? [null], dropdownSemanticRole: props.dropdownSemanticRole ?? calculateSemanticRole(props) },
-        React.createElement(DropdownListComponent, { ...restProps, 
-            // semantics:
-            tag: listTag, role: listRole, semanticTag: listSemanticTag, semanticRole: listSemanticRole }, children)));
+        semanticTag: props.semanticTag ?? [null], semanticRole: props.semanticRole ?? calculateSemanticRole(props) },
+        React.createElement(DropdownListComponent, { 
+            // essentials:
+            listRef: listRef, 
+            // components:
+            list: list, 
+            // variants:
+            // layouts:
+            size: size, orientation: orientation, nude: false, 
+            // colors:
+            theme: theme, gradient: gradient, outlined: outlined, mild: mild, 
+            // variants:
+            listStyle: listStyle, 
+            // behaviors:
+            actionCtrl: actionCtrl, 
+            // <Indicator> states:
+            enabled: enabled, inheritEnabled: inheritEnabled, readOnly: readOnly, inheritReadOnly: inheritReadOnly, active: false, inheritActive: false }, children)));
 }
 DropdownListButton.prototype = DropdownButton.prototype; // mark as DropdownButton compatible
 export { DropdownListButton as default };
