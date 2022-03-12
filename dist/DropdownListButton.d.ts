@@ -1,9 +1,9 @@
 /// <reference types="react" />
-import { PopupPlacement, PopupMiddleware, PopupStrategy, OrientationName, OrientationVariant, ListStyle, ListVariant, DropdownListCloseType, DropdownListItemProps, DropdownListItem, DropdownListSeparatorItem, DropdownListComponentProps } from '@nodestrap/dropdown-list';
+import { PopupPlacement, PopupMiddleware, PopupStrategy, OrientationName, OrientationVariant, ListStyle, ListVariant, DropdownListCloseType, ListItemProps, ListItem, ListSeparatorItem, DropdownListComponentProps } from '@nodestrap/dropdown-list';
 import { DropdownButtonProps } from '@nodestrap/dropdown-button';
-export type { DropdownListItemProps, DropdownListItemProps as ItemProps };
-export { DropdownListItem, DropdownListItem as Item };
-export { DropdownListSeparatorItem, DropdownListSeparatorItem as SeparatorItem };
+export type { ListItemProps, ListItemProps as DropdownListItemProps, ListItemProps as ItemProps };
+export { ListItem, ListItem as DropdownListItem, ListItem as Item };
+export { ListSeparatorItem, ListSeparatorItem as DropdownListSeparatorItem, ListSeparatorItem as SeparatorItem };
 export type { DropdownListCloseType };
 export interface DropdownListButtonProps<TElement extends HTMLElement = HTMLElement, TCloseType = DropdownListCloseType> extends DropdownButtonProps<TElement, TCloseType>, Omit<DropdownListComponentProps<TElement, TCloseType>, 'onClick'> {
 }

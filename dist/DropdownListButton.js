@@ -3,10 +3,11 @@ import { default as React, } from 'react'; // base technology of our nodestrap c
 // nodestrap components:
 import { 
 // utilities:
-calculateSemanticRole, DropdownListItem, DropdownListSeparatorItem, DropdownListComponent, } from '@nodestrap/dropdown-list';
+calculateSemanticRole, ListItem, ListSeparatorItem, DropdownListComponent, } from '@nodestrap/dropdown-list';
 import { DropdownButton, } from '@nodestrap/dropdown-button';
-export { DropdownListItem, DropdownListItem as Item };
-export { DropdownListSeparatorItem, DropdownListSeparatorItem as SeparatorItem };
+export { ListItem, ListItem as DropdownListItem, ListItem as Item };
+// ListSeparatorItem => DropdownListSeparatorItem
+export { ListSeparatorItem, ListSeparatorItem as DropdownListSeparatorItem, ListSeparatorItem as SeparatorItem };
 export function DropdownListButton(props) {
     // rest props:
     const { 
