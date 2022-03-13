@@ -13,13 +13,16 @@ export function DropdownListButton(props) {
     const { 
     // essentials:
     listRef, 
+    // layouts:
+    listOrientation, 
     // components:
     list, 
     // children:
     children, ...restDropdownProps } = props;
     const { 
     // layouts:
-    size, orientation, 
+    size, 
+    // orientation, // renamed listOrientation
     // nude,
     // colors:
     theme = 'secondary', // set default to secondary
@@ -44,7 +47,8 @@ export function DropdownListButton(props) {
             list: list, 
             // variants:
             // layouts:
-            size: size, orientation: orientation, nude: false, 
+            size: size, orientation: listOrientation, 
+            // nude={nude}
             // colors:
             theme: theme, gradient: gradient, outlined: outlined, mild: mild, 
             // variants:

@@ -1,6 +1,6 @@
 {
   "name": "@nodestrap/dropdown-list-button",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "A button combined with a list element (menu).",
   "type": "module",
   "main": "dist/DropdownListButton.js",
@@ -32,7 +32,7 @@
   "homepage": "https://github.com/nodestrap/dropdown-list-button#readme",
   "dependencies": {
     "@nodestrap/dropdown-button": "^4.0.11",
-    "@nodestrap/dropdown-list": "^4.0.9",
+    "@nodestrap/dropdown-list": "^4.0.10",
     "@types/react": "^17.0.40",
     "react": "^17.0.2"
   }
